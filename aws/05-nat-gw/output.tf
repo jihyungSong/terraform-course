@@ -25,3 +25,7 @@ output "public_route_table_id" {
 output "private_route_table_id" {
     value = aws_route_table.vpc_private_rt.id
 }
+
+output "nat_gateway_id" {
+    value = aws_nat_gateway.vpc_nat_gw.id
+}
