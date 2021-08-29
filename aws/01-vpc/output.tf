@@ -1,7 +1,9 @@
-output "vpc_id" {
-    value = aws_vpc.vpc.id
+output "this_vpc_id" {
+    description     =   "The ID of VPC"
+    value           =   aws_vpc.this.id
 }
 
-output "vpc_cidr" {
-    value = aws_vpc.vpc.cidr_block
+output "this_vpc_cidr_block" {
+    description     =   "The CIDR IP Range Block of VPC"
+    value           =   aws_vpc.this.cidr_block
 }

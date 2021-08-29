@@ -1,7 +1,7 @@
 # Security Group for SSH
-resource "aws_security_group" "admin_security_group" {
+resource "aws_security_group" "admin" {
   name                  =   "${var.prefix}-admin-sg"
-  vpc_id                =   aws_vpc.vpc.id
+  vpc_id                =   aws_vpc.this.id
 
   # Outbound ALL
   egress {
@@ -19,18 +19,18 @@ resource "aws_security_group" "admin_security_group" {
 
 resource "aws_security_group_rule" "admin_access_ingress" {
   description           =   "Allow SSH for admin"
-  cidr_blocks           =   var.ssh_cidrs
+  cidr_blocks           =   var.admin_access_cidrs
   from_port             =   22
   to_port               =   22
   protocol              =   "tcp"
-  security_group_id     =   aws_security_group.admin_security_group.id
+  security_group_id     =   aws_security_group.admin.id
   type                  =   "ingress"
 }
 
 # Security Group for Web
-resource "aws_security_group" "webserver_security_group" {
-  name                  =   "${var.prefix}-webserver-sg"
-  vpc_id                =   aws_vpc.vpc.id
+resource "aws_security_group" "web" {
+  name                  =   "${var.prefix}-web-sg"
+  vpc_id                =   aws_vpc.this.id
 
   # Outbound ALL
   egress {
@@ -41,7 +41,7 @@ resource "aws_security_group" "webserver_security_group" {
   }
 
   tags = {
-    Name        = "${var.prefix}-webserver-sg"
+    Name        = "${var.prefix}-web-sg"
     Managed_by  = "terraform"
   }
 }
@@ -52,6 +52,6 @@ resource "aws_security_group_rule" "http_access_ingress" {
   from_port             =   80
   to_port               =   80
   protocol              =   "tcp"
-  security_group_id     =   aws_security_group.webserver_security_group.id
+  security_group_id     =   aws_security_group.web.id
   type                  =   "ingress"
 }

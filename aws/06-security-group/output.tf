@@ -1,39 +1,49 @@
-output "vpc_id" {
-    value = aws_vpc.vpc.id
+output "this_vpc_id" {
+    description     =   "The ID of VPC"
+    value           =   aws_vpc.this.id
 }
 
-output "vpc_cidr" {
-    value = aws_vpc.vpc.cidr_block
+output "this_vpc_cidr_block" {
+    description     =   "The CIDR IP Range Block of VPC"
+    value           =   aws_vpc.this.cidr_block
 }
 
 output "public_subnet_ids" {
-    value = aws_subnet.public_subnet.*.id
+    description     =   "The List of Public Subnet ID of VPC"
+    value           =   aws_subnet.public.*.id
 }
 
 output "private_subnet_ids" {
-    value = aws_subnet.private_subnet.*.id
+    description     =   "The List of Private Subnet ID of VPC"
+    value           =   aws_subnet.private.*.id
 }
 
-output "internet_gateway_id" {
-    value = aws_internet_gateway.vpc_igw.id
+output "this_internet_gateway_id" {
+    description     =   "The ID of Internet Gateway of VPC"
+    value           =   aws_internet_gateway.this.id
 }
 
 output "public_route_table_id" {
-    value = aws_route_table.vpc_public_rt.id
+    description     =   "The ID of Route Table for Public Subnet"
+    value           =   aws_route_table.public.id
 }
 
 output "private_route_table_id" {
-    value = aws_route_table.vpc_private_rt.id
+    description     =   "The ID of Route Table for Private Subnet"
+    value           =   aws_route_table.private.id
 }
 
-output "nat_gateway_id" {
-    value = aws_nat_gateway.vpc_nat_gw.id
+output "this_nat_gateway_id" {
+    description     =   "The ID of NAT Gateway of VPC"
+    value           =   aws_nat_gateway.this.id
 }
 
 output "admin_security_group_id" {
-    value = aws_security_group.admin_security_group.id
+    description     =   "The ID of Security Group for Admin access"
+    value           =   aws_security_group.admin.id
 }
 
 output "web_security_group_id" {
-    value = aws_security_group.webserver_security_group.id
+    description     =   "The ID of Security Group for Web(HTTP) access"
+    value           =   aws_security_group.web.id
 }

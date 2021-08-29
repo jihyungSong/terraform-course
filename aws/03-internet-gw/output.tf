@@ -1,19 +1,24 @@
-output "vpc_id" {
-    value = aws_vpc.vpc.id
+output "this_vpc_id" {
+    description     =   "The ID of VPC"
+    value           =   aws_vpc.this.id
 }
 
-output "vpc_cidr" {
-    value = aws_vpc.vpc.cidr_block
+output "this_vpc_cidr_block" {
+    description     =   "The CIDR IP Range Block of VPC"
+    value           =   aws_vpc.this.cidr_block
 }
 
 output "public_subnet_ids" {
-    value = aws_subnet.public_subnet.*.id
+    description     =   "The List of Public Subnet ID of VPC"
+    value           =   aws_subnet.public.*.id
 }
 
 output "private_subnet_ids" {
-    value = aws_subnet.private_subnet.*.id
+    description     =   "The List of Private Subnet ID of VPC"
+    value           =   aws_subnet.private.*.id
 }
 
-output "internet_gateway_id" {
-    value = aws_internet_gateway.vpc_igw.id
+output "this_internet_gateway_id" {
+    description     =   "The ID of Internet Gateway of VPC"
+    value           =   aws_internet_gateway.this.id
 }

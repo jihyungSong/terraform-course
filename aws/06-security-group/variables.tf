@@ -17,6 +17,6 @@ variable "private_subnets" {
     }))
 }
 
-variable "ssh_cidrs" {
+variable "admin_access_cidrs" {
     type = list(string)
 }

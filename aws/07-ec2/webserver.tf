@@ -1,4 +1,6 @@
 resource "aws_instance" "webserver" {
+    count                           =   length(var.subnet_ids)
+    
     associate_public_ip_address     =   true
     ami                             =   data.aws_ami.ubuntu.id
     subnet_id                       =   element(var.subnet_ids, count.index)
@@ -12,6 +14,4 @@ resource "aws_instance" "webserver" {
         Name                        =   "${var.prefix}-webserver-${count.index}"
         Managed_by                  =   "terraform"
     }
-    
-    count                           =   length(var.subnet_ids)
 }

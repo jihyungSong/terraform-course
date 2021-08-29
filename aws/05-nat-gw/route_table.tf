@@ -1,6 +1,6 @@
 # Route table (Public)
-resource "aws_route_table" "vpc_public_rt" {
-    vpc_id              =   aws_vpc.vpc.id
+resource "aws_route_table" "public" {
+    vpc_id              =   aws_vpc.this.id
 
     tags = {
         Name            =   "${var.prefix}-public-rt"
@@ -9,8 +9,8 @@ resource "aws_route_table" "vpc_public_rt" {
 }
 
 # Route table (Private)
-resource "aws_route_table" "vpc_private_rt" {
-    vpc_id              =   aws_vpc.vpc.id
+resource "aws_route_table" "private" {
+    vpc_id              =   aws_vpc.this.id
 
     tags = {
         Name            =   "${var.prefix}-private-rt"
@@ -19,29 +19,22 @@ resource "aws_route_table" "vpc_private_rt" {
 }
 
 # Add route to go to the Internet Gateway for public
-resource "aws_route" "internet_gateway_route" {
-    route_table_id             =    aws_route_table.vpc_public_rt.id
+resource "aws_route" "internet_gateway" {
+    route_table_id             =    aws_route_table.public.id
     destination_cidr_block     =    "0.0.0.0/0"
-    gateway_id                 =    aws_internet_gateway.vpc_igw.id
+    gateway_id                 =    aws_internet_gateway.this.id
 }
 
-# Add route to go to the NAT Gateway for private
-resource "aws_route" "nat_gateway_route" {
-    route_table_id             =    aws_route_table.vpc_private_rt.id
-    destination_cidr_block     =    "0.0.0.0/0"
-    gateway_id                 =    aws_nat_gateway.vpc_nat_gw.id
-}
-
-resource "aws_route_table_association" "public_rt_assoc" {
-    subnet_id         =   "${aws_subnet.public_subnet[count.index].id}"
-    route_table_id    =   aws_route_table.vpc_public_rt.id
-  
+resource "aws_route_table_association" "public" {
     count             =   length(var.public_subnets)
+    
+    subnet_id         =   "${aws_subnet.public[count.index].id}"
+    route_table_id    =   aws_route_table.public.id
 }
 
-resource "aws_route_table_association" "private_rt_assoc" {
-    subnet_id         =   "${aws_subnet.private_subnet[count.index].id}"
-    route_table_id    =   aws_route_table.vpc_private_rt.id
-  
+resource "aws_route_table_association" "private" {
     count             =   length(var.public_subnets)
+    
+    subnet_id         =   "${aws_subnet.private[count.index].id}"
+    route_table_id    =   aws_route_table.private.id
 }

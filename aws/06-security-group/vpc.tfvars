@@ -16,4 +16,4 @@ private_subnets = [
     {cidr = "10.0.14.0/24", availability_zone = "us-east-1d"},
 ]
 
-ssh_cidrs           = ["<<YOUR_LOCAL_IP_CIDR>>"]
+admin_access_cidrs           = ["<<YOUR_LOCAL_IP_CIDR>>"]
