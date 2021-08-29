@@ -17,3 +17,6 @@ private_subnets = [
 ]
 
 admin_access_cidrs           = ["59.13.230.124/32"]
+
+instance_type       =   "t3.micro"
+keypair_name        =   "jihyungsong-new-key"

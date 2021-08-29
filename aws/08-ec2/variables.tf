@@ -1,6 +1,7 @@
 variable "prefix" {}
-variable "vpc_cidr" {}
+variable "region" {}
 
+variable "vpc_cidr" {}
 variable "public_subnets" {
     type = list(object({
         cidr                =   string
@@ -18,3 +19,5 @@ variable "private_subnets" {
 variable "admin_access_cidrs" {
     type = list(string)
 }
+variable "instance_type" {}
+variable "keypair_name" {}
