@@ -28,7 +28,8 @@ module  "auto_scaling_group" {
     source              =   "./modules/auto_scaling_group"
     
     prefix              =   var.prefix
-    image_id            =   data.aws_ami.ubuntu.id
+
+    image_id            =   var.image_id
     instance_type       =   var.instance_type
     keypair_name        =   var.keypair_name
     security_group_ids  =   [module.vpc.web_security_group_id]

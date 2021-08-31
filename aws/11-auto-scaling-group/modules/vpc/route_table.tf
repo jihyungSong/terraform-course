@@ -26,15 +26,19 @@ resource "aws_route" "internet_gateway" {
 }
 
 resource "aws_route_table_association" "public" {
-    count             =   length(var.public_subnets)
+    count               =   length(var.public_subnets)
     
-    subnet_id         =   "${aws_subnet.public[count.index].id}"
-    route_table_id    =   aws_route_table.public.id
+    subnet_id           =   "${aws_subnet.public[count.index].id}"
+    route_table_id      =   aws_route_table.public.id
+    
+    depends_on          =   [aws_subnet.public]
 }
 
 resource "aws_route_table_association" "private" {
-    count             =   length(var.public_subnets)
+    count               =   length(var.public_subnets)
     
-    subnet_id         =   "${aws_subnet.private[count.index].id}"
-    route_table_id    =   aws_route_table.private.id
+    subnet_id           =   "${aws_subnet.private[count.index].id}"
+    route_table_id      =   aws_route_table.private.id
+    
+    depends_on          =   [aws_subnet.private]
 }
