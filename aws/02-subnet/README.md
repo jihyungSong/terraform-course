@@ -1,6 +1,6 @@
 # Info
 * Terraform VPC Subnet Example
-
+[]("./02-subnet-diagram.png")
 
 # Step
 
