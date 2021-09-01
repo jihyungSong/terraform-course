@@ -1,7 +1,7 @@
 # Info
 * Terraform VPC Example
 
-![](./01-vpc-diagram.png)
+![](./img/01-vpc-diagram.png)
 
 * VPC CIDR: 10.0.0.0/16 
 
@@ -42,7 +42,7 @@ terraform apply --var-file=vpc.tfvars
 ```  
 
 ## 5. 실행 내용 확인
-선택한 Region 에 VPC 생성된 내용 확인 
+선택한 Region 에 VPC 생성 내용 확인 
 
 
 # Resource 삭제

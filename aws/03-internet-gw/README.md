@@ -1,12 +1,13 @@
 # Info
-Terraform VPC Subnet Example
+Terraform VPC Internet Gateway Example
 
-![](./img/02-subnet-diagram.png)
+![](./img/03-internet-gateway-diagram.png)
 
 * VPC CIDR 은 10.0.0.0/16 
 * Subnet CIDR 은 10.X.0.0/24 
 * Subnet 은 본인이 선택한 Region 의 Availability Zone 수 만큼 생성 (ex. us-east-1 -> 4 Availability Zones -> 4 Subnets)
 * 각 Availability Zone 별로 Public Subnet, Private Subnet 페어로 한개씩 존재하도록 생성
+* Internet Gateway 생성 후 VPC 에 Attach
 
 # Step
 
@@ -50,17 +51,17 @@ terraform init
 ## 3. plan  
 Plan 명령으로 Terraform 수행 전 실행 시뮬레이션 확인
 ```
-terraform apply --var-file=subnet.tfvars
+terraform apply --var-file=internet_gateway.tfvars
 ```  
 
 ## 4. apply  
 Apply 명령으로 Terraform 을 통한 Resource 생성 수행
 ```
-terraform apply --var-file=subnet.tfvars
+terraform apply --var-file=internet_gateway.tfvars
 ```  
 
 ## 5. 실행 내용 확인
-선택한 Region 에 VPC 및 Subnet 생성 내용 확인 
+선택한 Region 에 VPC, Subnet, Internet Gateway 생성 내용 확인 
 
 
 # Resource 삭제
@@ -68,5 +69,5 @@ terraform apply --var-file=subnet.tfvars
 ## 1. destroy
 Destroy 명령으로 생성된 VPC 삭제 수행
 ```
-terraform destroy --var-file=subnet.tfvars
+terraform destroy --var-file=internet_gateway.tfvars
 ```
