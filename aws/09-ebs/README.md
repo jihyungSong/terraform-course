@@ -84,8 +84,9 @@ terraform apply --var-file=ebs.tfvars
 ```  
 
 ## 5. 실행 내용 확인
-선택한 Region 에 VPC, Subnet, Internet Gateway, Route Table, NAT Gateway, Security Group, instance 생성 내용 확인  
-생성된 Instance 에 웹서버 설치 확인. Instance 의 Public IP(또는 Public DNS) 로 브라우저에서 테스트 페이지 접속 확인. 
+* 선택한 Region 에 VPC, Subnet, Internet Gateway, Route Table, NAT Gateway, Security Group, instance 생성 내용 확인.  
+* Instance 에 EBS 볼륨 Attach 상태 확인.   
+* 생성된 Instance 에 웹서버 설치 확인. Instance 의 Public IP(또는 Public DNS) 로 브라우저에서 테스트 페이지 접속 확인. 
 
 
 # Resource 삭제
