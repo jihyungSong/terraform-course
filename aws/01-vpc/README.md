@@ -1,6 +1,10 @@
 # Info
 * Terraform VPC Example
 
+![](./01-vpc-diagram.png)
+
+* VPC CIDR: 10.0.0.0/16 
+
 
 # Step
 
@@ -15,6 +19,8 @@ prefix      =       "test"
 region      =       "us-east-1"
 vpc_cidr    =       "10.0.0.0/16"
 ```
+* Prefix 는 알맞게 변경
+* Region 은 본인이 사용할 region 코드로 변경
 
 ## 2. init  
 Init 명령으로 Terraform 수행을 위한 provider plugin 초기화 및 다운로드 수행
