@@ -73,7 +73,7 @@ terraform apply --var-file=security_group.tfvars
 ```  
 
 ## 5. 실행 내용 확인
-선택한 Region 에 VPC, Subnet, Internet Gateway, Route Table, NAT Gateway 생성 내용 확인 
+선택한 Region 에 VPC, Subnet, Internet Gateway, Route Table, NAT Gateway, Security Group 생성 내용 확인 
 
 
 # Resource 삭제
