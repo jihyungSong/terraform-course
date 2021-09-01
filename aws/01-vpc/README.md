@@ -39,7 +39,7 @@ terraform apply --var-file=vpc.tfvars
 선택한 Region 에 VPC 생성된 내용 확인 
 
 
-# Resource 정리
+# Resource 삭제
 
 ## 1. destroy
 Destroy 명령으로 생성된 VPC 삭제 수행
