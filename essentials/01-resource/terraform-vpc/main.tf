@@ -1,14 +1,14 @@
 terraform {}
 
 provider "aws" {
-    region          =   "<<REGION_NAME>>"
+    region          =   "us-east-1"
 }
 
 resource "aws_vpc" "main" {
     cidr_block      =   "10.0.0.0/16"
 
     tags = {
-        Name        =   "<<VPC_NAME>>"
+        Name        =   "sre"
         Managed_by  =   "terraform"
     }
 }
