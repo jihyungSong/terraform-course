@@ -8,6 +8,8 @@ variable "instance_type" {
     default     =   "t3.small"
 }
 
+variable "ami_id" {}
+variable "data_vol_snapshot_id" {}
 variable "keypair_name" {}
 variable "security_groups" {}
 variable "data_volume_size" {

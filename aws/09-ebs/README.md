@@ -183,10 +183,30 @@ vim index.html
 
 ### 12) 웹브라우저 접속시 정상 작동 확인
 
+해당 인스턴스의 Public IP 를 복사해 웹브라우저에서 접속 여부 확인.
 
-## 1. 변수 설정
+![](./img/05-security-group-diagram.png)  
+
+  
+### 13) AMI 생성 
+
+Instance 선택 -> Actions -> Image and Templates -> Create Image
+
+### 14) AMI 로 Instance 배포 확인
+
+AMI 선택 -> Actions -> Launch  
+
+Launch 시, Instance 생성 화면으로 전환.  
+
+Instance Type, Tags 등을 설정 후 배포.  
+배포 후 브라우저 접속하여 웹페이지 정상 서비스 확인.  
+
+
+## 2. Terraform 실행
+
+### 1) 변수 설정
 ebs.tfvars 파일 확인 
-실행 환경에 맞게 변경  
+실행 환경에 맞게 변경
 
 ```
 # ebs.tfvars 파일
@@ -224,26 +244,26 @@ data_volume_size        =   "30"
 * 데이터용 EBS 볼륨 사이즈 설정
 
 
-## 2. init  
+### 2) Terraform init  
 Init 명령으로 Terraform 수행을 위한 provider plugin 초기화 및 다운로드 수행
 
 ```
 terraform init
 ```
 
-## 3. plan  
+### 4) Terraform plan  
 Plan 명령으로 Terraform 수행 전 실행 시뮬레이션 확인
 ```
 terraform apply --var-file=ebs.tfvars
 ```  
 
-## 4. apply  
+### 5) Terraform apply  
 Apply 명령으로 Terraform 을 통한 Resource 생성 수행
 ```
 terraform apply --var-file=ebs.tfvars
 ```  
 
-## 5. 실행 내용 확인
+## 3. Terraform 실행 내용 확인
 * 선택한 Region 에 VPC, Subnet, Internet Gateway, Route Table, NAT Gateway, Security Group, instance 생성 내용 확인.  
 * Instance 에 EBS 볼륨 Attach 상태 확인.   
 * 생성된 Instance 에 웹서버 설치 확인. Instance 의 Public IP(또는 Public DNS) 로 브라우저에서 테스트 페이지 접속 확인. 
@@ -251,7 +271,7 @@ terraform apply --var-file=ebs.tfvars
 
 # Resource 삭제
 
-## 1. destroy
+### Terraform destroy
 Destroy 명령으로 생성된 EC2 Instance, EBS 볼륨 및 VPC 삭제 수행
 ```
 terraform destroy --var-file=ebs.tfvars

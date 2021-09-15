@@ -2,7 +2,7 @@ resource "aws_instance" "webserver" {
     count                           =   length(var.subnet_ids)
     
     associate_public_ip_address     =   true
-    ami                             =   data.aws_ami.ubuntu.id
+    ami                             =   var.ami_id
     subnet_id                       =   element(var.subnet_ids, count.index)
     instance_type                   =   var.instance_type
     key_name                        =   var.keypair_name
@@ -12,6 +12,7 @@ resource "aws_instance" "webserver" {
     ebs_block_device {
         device_name                 =   "/dev/sdb"
         volume_type                 =   "gp3"
+        snapshot_id                 =   var.data_vol_snapshot_id
         volume_size                 =   var.data_volume_size
         delete_on_termination       =   true
     }
