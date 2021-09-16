@@ -1,8 +1,9 @@
 # Info
 Terraform VPC + EC2 with EBS instance Example
 
-![](./img/05-security-group-diagram.png)
+![](./img/09-ebs-diagram.png)
 
+#### VPC
 * VPC CIDR 은 10.0.0.0/16 
 * Subnet CIDR 은 10.X.0.0/24 
 * Subnet 은 본인이 선택한 Region 의 Availability Zone 수 만큼 생성 (ex. us-east-1 -> 4 Availability Zones -> 4 Subnets)
@@ -17,10 +18,18 @@ Terraform VPC + EC2 with EBS instance Example
 * SSH 허용을 위한 Admin 용 Security Group 과 HTTP 웹 접속 허용을 위한 Web Security Group, 총 두개 Security Group 생성
 * Admin Security Group 에는 SSH(20) 포트를 본인 Cloud9 Public IP 허용하는 Rule 생성
 * Web Security Group 에는 HTTP(80) 포트를 모두 허용 하는 Rule 생성
-* **각 Resource 를 생성하는 코드를 모두 Module 로 제작**
-* 각 Public Subnet 에 EC2 Instance 를 하나씩 생성
+* 각 Resource 를 생성하는 코드를 모두 Module 로 제작
+ 
+
+#### EC2 with EBS Volume
+* Instance 에 Volume 사용 설정 완료된 AMI 이미지 제작
+    * 추가 Volume 사용을 위한 파일시스템 포맷 및 마운트
+    * Nginx 웹서버 설치 및 설정
+    * 추가 Volume 이 마운트된 디렉토리에 HTML index 파일 생성
+    * 위 설정이 완료된 Instance 와 EBS 볼륨 모두 스냅샷 + AMI 생성
+* 각 Public Subnet 에 미리 제작된 AMI 를 사용하여 EC2 Instance 와 EBS Volume 배포.
 * EC2 Instance 마다 EBS 데이터 Volume 생성후 Attach
-* 각 EC2 Instance 생성 후, User data 를 통해 Nginx 웹서버 설치 및 index.html 테스트 웹 파일 생성
+* 각 EC2 Instance 생성 후, User data 를 통해 index.html 테스트 웹 파일에 추가 정보 append
 
 # Step
 
@@ -38,6 +47,12 @@ OS 설정이 추가된 AMI 이미지를 생성 후 배포.
 * Tags : Name 지정
 
 ### 2) Instance 접속
+
+초기 접속시에는 ubuntu 라는 유저.  
+OS 설정 작업의 편의성을 위해 root 로 전환
+```
+> sudo su - 
+```
 
 ### 3) data volume (xvdb) attach 확인
 
@@ -192,8 +207,6 @@ nginx 서버 동작 확인
 
 해당 인스턴스의 Public IP 를 복사해 웹브라우저에서 접속 여부 확인.
 
-![](./img/05-security-group-diagram.png)  
-
   
 ### 13) AMI 생성 
 
@@ -238,16 +251,21 @@ private_subnets     =       [
 
 admin_access_cidrs      =   ["<<YOUR_LOCAL_IP_CIDR>>"]
 
+ami_id                  =   "<<AMI_ID>>"
+data_vol_snapshot_id    =   "<<DATA_VOLUME_SNAPSHOT_ID>>"
+
 instance_type           =   "t3.micro"
 keypair_name            =   "<<YOUR_KEYPAIR_NAME>>"
-data_volume_size        =   "30"
+data_volume_size        =   "15"
+
 
 ```
 * Prefix 는 알맞게 변경
 * Region 은 본인이 사용할 region 코드로 변경
 * Subnet 의 Availability Zone 값은 Region 에 맞게 변경
 * SSH 접속 허용할 IP 값 변경
-* Ec2 instance 에 설정할 keypair 명 설정
+* EC2 instance 의 AMI 와 추가 데이터 볼륨 생성을 위한 Snapshot ID 설정
+* EC2 instance 에 설정할 keypair 명 설정
 * 데이터용 EBS 볼륨 사이즈 설정
 
 
