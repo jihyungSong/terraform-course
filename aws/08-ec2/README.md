@@ -1,7 +1,7 @@
 # Info
 Terraform VPC + EC2 instance Example
 
-![](./img/05-security-group-diagram.png)
+![](./img/08-ec2-diagram.png)
 
 * VPC CIDR 은 10.0.0.0/16 
 * Subnet CIDR 은 10.X.0.0/24 
