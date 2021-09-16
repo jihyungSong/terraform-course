@@ -1,0 +1,16 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "elasticfilesystem:ClientMount",
+                "elasticfilesystem:ClientRootAccess",
+                "elasticfilesystem:ClientWrite",
+                "elasticfilesystem:DescribeMountTargets",
+                "ec2:DescribeAvailabilityZones"
+            ],
+            "Resource": "*"
+        }
+    ]
+}

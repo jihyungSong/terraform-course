@@ -165,9 +165,8 @@ server {
 
 ### 10) /data 디렉토리에 기본 index.html 파일 생성
 ```
-> cd /data
-> mkdir html
-> cd html
+cd /data
+mkdir html
 ```
 
 
@@ -180,12 +179,6 @@ vim index.html
 ### 11) nginx 재부팅
 ```
 > systemctl restart nginx
-```
-
-nginx 서버 동작 확인
-
-```
-> systemctl status nginx
 ```
 
 ### 12) 웹브라우저 접속시 정상 작동 확인
