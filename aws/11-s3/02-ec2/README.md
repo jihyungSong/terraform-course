@@ -1,7 +1,7 @@
 # Info
 Terraform VPC + S3 + EC2 Example
 
-![](./img/11-s3-diagram.png)
+![](../img/11-s3-diagram.png)
 
 #### S3
 * S3 Bucket 생성 
