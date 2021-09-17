@@ -89,7 +89,7 @@ Public 으로 변환한 이미지를 최종 close 를 눌러 완료.
 *해당 삭제는 02-ec2 까지 완료한 이후 정리작업을 수행한다.*
 
 ### Terraform destroy
-Destroy 명령으로 생성된 VPC 및 EFS 삭제 수행
+Destroy 명령으로 생성된 S3 삭제 수행
 ```
 terraform destroy --var-file=s3.tfvars
 ```
