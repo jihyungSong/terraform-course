@@ -1,7 +1,7 @@
 # Info
 Terraform VPC + EC2 with EFS Example
 
-![](../img/10-efs-diagram.png)
+![](../img/10-02-ec2-diagram.png)
 
 #### EC2 with EFS
 * 각 Public Subnet 에 이전에 생성한 AMI 로 EC2 Instance 배포

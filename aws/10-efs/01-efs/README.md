@@ -1,7 +1,7 @@
 # Info
 Terraform VPC + EC2 with EFS Example
 
-![](../img/10-efs-diagram.png)
+![](../img/10-01-efs-diagram.png)
 
 #### VPC (Terraform 사용)
 * VPC CIDR 은 10.0.0.0/16 
