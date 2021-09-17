@@ -10,3 +10,4 @@ variable "instance_type" {
 
 variable "keypair_name" {}
 variable "security_groups" {}
+variable "img_url" {}

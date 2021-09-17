@@ -1,2 +1,2 @@
-prefix              =       "jhsong-terraform"
+prefix              =       "<<YOUR_PREFIX>>"
 region              =       "us-east-1"

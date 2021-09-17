@@ -1,5 +1,9 @@
 data "template_file" "webserver_init" {
     template = file("${path.module}/templates/userdata.sh.tpl")
+    
+    vars = {
+        img_url = var.img_url
+    }
 }
 
 data "aws_ami" "ubuntu" {
