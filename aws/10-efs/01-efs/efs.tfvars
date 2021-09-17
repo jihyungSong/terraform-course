@@ -17,5 +17,3 @@ private_subnets     =       [
 ]
 
 admin_access_cidrs  =       ["<<YOUR_LOCAL_IP_CIDR>>"]
-
-
