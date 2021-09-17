@@ -1,4 +1,4 @@
-prefix                  =   "test"
+prefix                  =   "<<YOUR_PREFIX>>"
 region                  =   "us-east-1"
 
 public_subnet_ids       =   []

@@ -18,7 +18,7 @@ internet_gateway.tfvars 파일 확인
 ```
 # internet_gateway.tfvars 파일
 
-prefix              =       "test"
+prefix              =       "<<YOUR_PREFIX>>"
 region              =       "us-east-1"
 vpc_cidr            =       "10.0.0.0/16"
 

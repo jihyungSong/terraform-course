@@ -1,0 +1,2 @@
+variable "prefix" {}
+variable "region" {}
