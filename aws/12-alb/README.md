@@ -96,10 +96,10 @@ terraform apply --var-file=alb.tfvars
 ```  
 
 ## 5. 실행 내용 확인
-선택한 Region 에 VPC, Subnet, Internet Gateway, Route Table, NAT Gateway, Security Group, instance 생성 내용 확인  
-생성된 ALB 와 Target Group 확인. Target Group 에 소속된 Instance 의 Status Healty 확인.
-ALB 의 DNS name 으로 웹브라우저 접속 정상 확인.
-웹브라우저 refresh 시, 정상적인 Balancing 접속 확인.
+선택한 Region 에 VPC, Subnet, Internet Gateway, Route Table, NAT Gateway, Security Group, instance 생성 내용 확인.    
+생성된 ALB 와 Target Group 확인. Target Group 에 소속된 Instance 의 Status Healty 확인.  
+ALB 의 DNS name 으로 웹브라우저 접속 정상 확인.  
+웹브라우저 refresh 시, 정상적인 Balancing 접속 확인.  
 
 
 # Resource 삭제
