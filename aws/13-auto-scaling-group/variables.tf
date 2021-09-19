@@ -20,6 +20,8 @@ variable "admin_access_cidrs" {
     type = list(string)
 }
 variable "image_id" {}
+variable "data_vol_snapshot_id" {}
+variable "data_volume_size" {}
 variable "instance_type" {}
 variable "keypair_name" {}
 

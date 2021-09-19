@@ -24,3 +24,6 @@ variable "min_size" {
 variable "desired_capacity" {
     type    =   number
 }
+
+variable "data_vol_snapshot_id" {}
+variable "data_volume_size" {}
