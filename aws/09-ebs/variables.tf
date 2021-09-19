@@ -19,10 +19,10 @@ variable "private_subnets" {
 variable "admin_access_cidrs" {
     type = list(string)
 }
-variable "instance_type" {}
+
 variable "ami_id" {}
 variable "data_vol_snapshot_id" {}
-variable "keypair_name" {}
+variable "instance_type" {}
 variable "data_volume_size" {
     description =   "The size of the EBS data volume to attach to the instance (GiB)"
 }

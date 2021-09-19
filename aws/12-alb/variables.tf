@@ -19,6 +19,9 @@ variable "private_subnets" {
 variable "admin_access_cidrs" {
     type = list(string)
 }
+variable "ami_id" {}
+variable "data_vol_snapshot_id" {}
+variable "data_volume_size" {}
 variable "instance_type" {}
 variable "keypair_name" {}
 

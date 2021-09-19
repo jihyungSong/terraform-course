@@ -1,4 +1,4 @@
-prefix              =       "test"
+prefix              =       "<<YOUR_PREFIX>>"
 region              =       "us-east-1"
 vpc_cidr            =       "10.0.0.0/16"
 
@@ -16,10 +16,12 @@ private_subnets = [
     {cidr = "10.0.14.0/24", availability_zone = "us-east-1d"},
 ]
 
-admin_access_cidrs           = ["59.13.230.124/32"]
+admin_access_cidrs          =   ["<<YOUR_LOCAL_IP_CIDR>>"]
+ami_id                      =   "<<YOUR_AMI_ID>>"
+data_vol_snapshot_id        =   "<<DATA_VOLUME_SNAPSHOT_ID>>"
+data_volume_size            =   "10"
+instance_type               =   "t3.micro"
+keypair_name                =   "<<YOUR_KEYPAIR_NAME>>"
 
-instance_type       =   "t3.micro"
-keypair_name        =   "jihyungsong-new-key"
-
-port                =   "80"
-protocol            =   "HTTP"
+port                        =   "80"
+protocol                    =   "HTTP"
