@@ -25,6 +25,11 @@ Terraform VPC + EC2 with EFS Example
 * EFS Filesystem 생성 
 * 각 Subnet 마다 Mount Target 생성 후 EFS Security Group 적용
 
+#### IAM (Terraform 사용)
+* EC2 Instance 가 EFS 의 Filesystem 에 접근해 사용할 수 있도록 권한이 부여된 role 과 Policy 생성
+* 해당 Role 이 EC2 Instance 에 부여될 수 있도록 Profile 생성
+
+
 #### EC2 용 AMI 제작 (Manually)
 * Instance 에 EFS Filesystem 사용 설정 완료된 AMI 이미지 제작
     * NFS 마운트
@@ -94,6 +99,7 @@ terraform apply --var-file=efs.tfvars
 ## 3. Terraform 실행 내용 확인
 * 선택한 Region 에 VPC, Subnet, Internet Gateway, Route Table, NAT Gateway, Security Group, instance 생성 내용 확인.  
 * EFS Filesystem 생성 여부 확인.
+* IAM Role 생성 확인
 * 각 Subnet에 Mount Target 생성 여부 확인.
 
 

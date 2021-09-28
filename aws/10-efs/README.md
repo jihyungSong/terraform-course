@@ -43,3 +43,16 @@ Terraform 코드를 두번으로 나누어 각각 실행한다.
 먼저 01-efs 디렉토리로 이동하여 Terraform 실행 수행.  
 VPC 와 EFS 파일 시스템이 준비되면, 해당 VPC 에서 AMI 생성 작업.  
 AMI 생성이 완료되면, 02-ec2 디렉토리로 이동하여 Terraform 실행 수행.
+
+# 참고
+
+Cloud9 을 사용할 경우, Cloud9 에 부여된 권한은 IAM Role 생성 권한이 없는 상태.   
+IAM 생성을 위한 Terraform 실행을 위해서는 IAM 생성 권한 필요.  
+  
+IAM User 에서 직접 Access / Secret Key 를 생성해서 사용하도록 함.  
+Cloud9 의 환경 변수에 해당 Key 값을 등록해서 사용.  
+
+```
+export AWS_ACCESS_KEY_ID="<<MY_ACCESS_KEY>>"​
+export AWS_SECRET_ACCESS_KEY="<<MY_SECRET_KEY>>"​
+```  
