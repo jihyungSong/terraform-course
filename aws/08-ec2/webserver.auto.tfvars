@@ -1,5 +1,5 @@
-prefix              =       "terraform-cloud"
-region              =       "eu-west-1"
+prefix              =       "<<YOUR_PREFIX>>"
+region              =       "us-east-1"
 vpc_cidr            =       "10.0.0.0/16"
 
 public_subnets      =       [
@@ -16,7 +16,7 @@ private_subnets     = [
     {cidr = "10.0.14.0/24", availability_zone = "us-east-1d"},
 ]
 
-admin_access_cidrs  = ["59.13.230.124/32"]
+admin_access_cidrs  = ["<<YOUR_LOCAL_IP_CIDR>>"]
 
 instance_type       =   "t3.micro"
-keypair_name        =   "ssuser23-key"
+keypair_name        =   "<<YOUR_KEYPAIR_NAME>>"
