@@ -18,7 +18,7 @@ resource "aws_subnet" "private" {
     
     vpc_id              =   aws_vpc.this.id
     cidr_block          =   "${lookup(var.private_subnets[count.index], "cidr")}"
-    availability_zone   =   "${lookup(var.public_subnets[count.index], "availability_zone")}"
+    availability_zone   =   "${lookup(var.private_subnets[count.index], "availability_zone")}"
     
     tags = {
         Name        =   "${var.prefix}-private-subnet-${count.index}"
