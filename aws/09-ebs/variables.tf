@@ -23,6 +23,7 @@ variable "admin_access_cidrs" {
 variable "ami_id" {}
 variable "data_vol_snapshot_id" {}
 variable "instance_type" {}
+variable "keypair_name" {}
 variable "data_volume_size" {
     description =   "The size of the EBS data volume to attach to the instance (GiB)"
 }
