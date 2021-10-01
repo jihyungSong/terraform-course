@@ -1,7 +1,7 @@
 variable "prefix" {}
 
 variable "subnet_ids" {
-    type        =   list
+    type        =   list(string)
 }
 
 variable "instance_type" {
@@ -9,4 +9,6 @@ variable "instance_type" {
 }
 
 variable "keypair_name" {}
-variable "security_groups" {}
+variable "security_groups" {
+    type        =   list(string)
+}

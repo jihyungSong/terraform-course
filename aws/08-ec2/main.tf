@@ -17,5 +17,5 @@ module "webserver" {
     subnet_ids          =   module.vpc.public_subnet_ids
     keypair_name        =   var.keypair_name
     instance_type       =   var.instance_type
-    security_groups     =   [module.vpc.web_security_group_id]
+    security_groups     =   [module.vpc.web_security_group_id, module.vpc.admin_security_group_id]
 }
