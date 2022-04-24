@@ -24,7 +24,7 @@ resource "aws_vpc" "west_main" {
     cidr_block      =   "10.0.0.0/16"
 
     tags = {
-        Name        =   "skccuser40-vpc"
+        Name        =   "<<VPC_NAME>>"
         Managed_by  =   "terraform"
     }
 }
