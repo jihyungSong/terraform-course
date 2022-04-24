@@ -2,21 +2,21 @@ terraform {
     required_providers {
         aws = {
             source  =   "hashicorp/aws"
-            version =   "3.5"
-            # version   =   ">= 3.6"
+            version =   "4.11"
+            # version   =   ">= 4.2"
         }
     }
 }
 
 provider "aws" {
-    region          =   "eu-west-1"
+    region          =   "<<YOUR_REGION>>"
 }
 
 resource "aws_vpc" "main" {
     cidr_block      =   "10.0.0.0/16"
 
     tags = {
-        Name        =   "ssuser-23"
+        Name        =   "<<YOUR_USER_NAME>>"
         Managed_by  =   "terraform"
     }
 }
