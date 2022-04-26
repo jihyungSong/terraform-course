@@ -6,4 +6,4 @@ resource "aws_internet_gateway" "this" {
         Name            =   "${var.prefix}-igw"
         Managed_by      =   "terraform"
     }
-}A
+}
