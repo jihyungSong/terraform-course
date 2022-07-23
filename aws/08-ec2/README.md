@@ -91,7 +91,8 @@ terraform apply
 # Resource 삭제
 
 ## 1. destroy
-Destroy 명령으로 생성된 EC2 Instance 및 VPC 삭제 수행
+Destroy 명령으로 생성된 EC2 Instance 및 VPC 삭제 수행.  
+`webserver.auto.tfvars` 파일은 auto.tfvars 파일 확장자를 가지고 있으므로 옵션 지정 없이 적용.
 ```
-terraform destroy --var-file=webserver.tfvars
+terraform destroy
 ```
