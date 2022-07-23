@@ -70,14 +70,15 @@ terraform init
 ```
 
 ## 3. plan  
-Plan 명령으로 Terraform 수행 전 실행 시뮬레이션 확인.
-webserver.auto.tfvars 파일은 auto.tfvars 파일 확장자를 가지고 있으므로 옵션 지정 없이 적용.
+Plan 명령으로 Terraform 수행 전 실행 시뮬레이션 확인.  
+`webserver.auto.tfvars` 파일은 auto.tfvars 파일 확장자를 가지고 있으므로 옵션 지정 없이 적용.
 ```
 terraform apply 
 ```  
 
 ## 4. apply  
-Apply 명령으로 Terraform 을 통한 Resource 생성 수행
+Apply 명령으로 Terraform 을 통한 Resource 생성 수행.  
+`webserver.auto.tfvars` 파일은 auto.tfvars 파일 확장자를 가지고 있으므로 옵션 지정 없이 적용.
 ```
 terraform apply 
 ```  
